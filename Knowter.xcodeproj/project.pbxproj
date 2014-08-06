@@ -91,6 +91,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1CB7DE01992D7C40069F74D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1E918741992D6A1007C7C6F /* Main_iPhone.storyboard */,
+				B1E918771992D6A1007C7C6F /* Main_iPad.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B1CB7DE11992D7CB0069F74D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9187D1992D6A1007C7C6F /* KnowterMasterViewController.h */,
+				B1E9187E1992D6A1007C7C6F /* KnowterMasterViewController.m */,
+				B1E918801992D6A1007C7C6F /* KnowterDetailViewController.h */,
+				B1E918811992D6A1007C7C6F /* KnowterDetailViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B1CB7DE21992D7D50069F74D /* Core Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9187A1992D6A1007C7C6F /* Knowter.xcdatamodeld */,
+			);
+			name = "Core Data Model";
+			sourceTree = "<group>";
+		};
 		B1E918541992D6A1007C7C6F = {
 			isa = PBXGroup;
 			children = (
@@ -127,14 +155,10 @@
 			children = (
 				B1E918711992D6A1007C7C6F /* KnowterAppDelegate.h */,
 				B1E918721992D6A1007C7C6F /* KnowterAppDelegate.m */,
-				B1E918741992D6A1007C7C6F /* Main_iPhone.storyboard */,
-				B1E918771992D6A1007C7C6F /* Main_iPad.storyboard */,
-				B1E9187D1992D6A1007C7C6F /* KnowterMasterViewController.h */,
-				B1E9187E1992D6A1007C7C6F /* KnowterMasterViewController.m */,
-				B1E918801992D6A1007C7C6F /* KnowterDetailViewController.h */,
-				B1E918811992D6A1007C7C6F /* KnowterDetailViewController.m */,
+				B1CB7DE21992D7D50069F74D /* Core Data Model */,
+				B1CB7DE01992D7C40069F74D /* View */,
+				B1CB7DE11992D7CB0069F74D /* Controller */,
 				B1E918831992D6A1007C7C6F /* Images.xcassets */,
-				B1E9187A1992D6A1007C7C6F /* Knowter.xcdatamodeld */,
 				B1E918691992D6A1007C7C6F /* Supporting Files */,
 			);
 			path = Knowter;
@@ -487,6 +511,7 @@
 				B1E9189D1992D6A1007C7C6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1E9189E1992D6A1007C7C6F /* Build configuration list for PBXNativeTarget "KnowterTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +520,7 @@
 				B1E918A01992D6A1007C7C6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

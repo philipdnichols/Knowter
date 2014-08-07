@@ -13,7 +13,7 @@
 #pragma mark - Initializers
 
 - (instancetype)initWithContent:(NSString *)content
-            andModificationDate:(NSDate *)modificationDate {
+            andModificationDate:(NSString *)modificationDate {
     self = [super init];
     if (self) {
         _content = content;

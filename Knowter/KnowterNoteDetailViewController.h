@@ -1,5 +1,5 @@
 //
-//  KnowterAppDelegate.h
+//  KnowterNoteViewController.h
 //  Knowter
 //
 //  Created by Philip Nichols on 8/6/14.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KnowterAppDelegate : UIResponder <UIApplicationDelegate>
+@interface KnowterNoteDetailViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSDictionary *note;
 
 @end

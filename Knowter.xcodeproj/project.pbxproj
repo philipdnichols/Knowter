@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1CB7DEB1992F1440069F74D /* KnowterNotesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7DEA1992F1440069F74D /* KnowterNotesTableViewController.m */; };
+		B1CB7DEE1992F5480069F74D /* KnowterNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CB7DED1992F5480069F74D /* KnowterNoteDetailViewController.m */; };
 		B1E918611992D6A1007C7C6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E918601992D6A1007C7C6F /* Foundation.framework */; };
 		B1E918631992D6A1007C7C6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E918621992D6A1007C7C6F /* CoreGraphics.framework */; };
 		B1E918651992D6A1007C7C6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E918641992D6A1007C7C6F /* UIKit.framework */; };
@@ -16,9 +18,6 @@
 		B1E918731992D6A1007C7C6F /* KnowterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E918721992D6A1007C7C6F /* KnowterAppDelegate.m */; };
 		B1E918761992D6A1007C7C6F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E918741992D6A1007C7C6F /* Main_iPhone.storyboard */; };
 		B1E918791992D6A1007C7C6F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E918771992D6A1007C7C6F /* Main_iPad.storyboard */; };
-		B1E9187C1992D6A1007C7C6F /* Knowter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1E9187A1992D6A1007C7C6F /* Knowter.xcdatamodeld */; };
-		B1E9187F1992D6A1007C7C6F /* KnowterMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9187E1992D6A1007C7C6F /* KnowterMasterViewController.m */; };
-		B1E918821992D6A1007C7C6F /* KnowterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E918811992D6A1007C7C6F /* KnowterDetailViewController.m */; };
 		B1E918841992D6A1007C7C6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E918831992D6A1007C7C6F /* Images.xcassets */; };
 		B1E9188B1992D6A1007C7C6F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E9188A1992D6A1007C7C6F /* XCTest.framework */; };
 		B1E9188C1992D6A1007C7C6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E918601992D6A1007C7C6F /* Foundation.framework */; };
@@ -26,6 +25,7 @@
 		B1E9188E1992D6A1007C7C6F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E918661992D6A1007C7C6F /* CoreData.framework */; };
 		B1E918961992D6A1007C7C6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1E918941992D6A1007C7C6F /* InfoPlist.strings */; };
 		B1E918981992D6A1007C7C6F /* KnowterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E918971992D6A1007C7C6F /* KnowterTests.m */; };
+		B1F384101993058D007BAB60 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F3840F1993058D007BAB60 /* Note.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1CB7DE91992F1440069F74D /* KnowterNotesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowterNotesTableViewController.h; sourceTree = "<group>"; };
+		B1CB7DEA1992F1440069F74D /* KnowterNotesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowterNotesTableViewController.m; sourceTree = "<group>"; };
+		B1CB7DEC1992F5480069F74D /* KnowterNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KnowterNoteDetailViewController.h; sourceTree = "<group>"; };
+		B1CB7DED1992F5480069F74D /* KnowterNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KnowterNoteDetailViewController.m; sourceTree = "<group>"; };
 		B1E9185D1992D6A1007C7C6F /* Knowter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knowter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E918601992D6A1007C7C6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1E918621992D6A1007C7C6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,17 +56,14 @@
 		B1E918721992D6A1007C7C6F /* KnowterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowterAppDelegate.m; sourceTree = "<group>"; };
 		B1E918751992D6A1007C7C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B1E918781992D6A1007C7C6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B1E9187B1992D6A1007C7C6F /* Knowter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Knowter.xcdatamodel; sourceTree = "<group>"; };
-		B1E9187D1992D6A1007C7C6F /* KnowterMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KnowterMasterViewController.h; sourceTree = "<group>"; };
-		B1E9187E1992D6A1007C7C6F /* KnowterMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowterMasterViewController.m; sourceTree = "<group>"; };
-		B1E918801992D6A1007C7C6F /* KnowterDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KnowterDetailViewController.h; sourceTree = "<group>"; };
-		B1E918811992D6A1007C7C6F /* KnowterDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowterDetailViewController.m; sourceTree = "<group>"; };
 		B1E918831992D6A1007C7C6F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B1E918891992D6A1007C7C6F /* KnowterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnowterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E9188A1992D6A1007C7C6F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B1E918931992D6A1007C7C6F /* KnowterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KnowterTests-Info.plist"; sourceTree = "<group>"; };
 		B1E918951992D6A1007C7C6F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1E918971992D6A1007C7C6F /* KnowterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowterTests.m; sourceTree = "<group>"; };
+		B1F3840E1993058D007BAB60 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		B1F3840F1993058D007BAB60 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,20 +104,12 @@
 		B1CB7DE11992D7CB0069F74D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B1E9187D1992D6A1007C7C6F /* KnowterMasterViewController.h */,
-				B1E9187E1992D6A1007C7C6F /* KnowterMasterViewController.m */,
-				B1E918801992D6A1007C7C6F /* KnowterDetailViewController.h */,
-				B1E918811992D6A1007C7C6F /* KnowterDetailViewController.m */,
+				B1CB7DE91992F1440069F74D /* KnowterNotesTableViewController.h */,
+				B1CB7DEA1992F1440069F74D /* KnowterNotesTableViewController.m */,
+				B1CB7DEC1992F5480069F74D /* KnowterNoteDetailViewController.h */,
+				B1CB7DED1992F5480069F74D /* KnowterNoteDetailViewController.m */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		B1CB7DE21992D7D50069F74D /* Core Data Model */ = {
-			isa = PBXGroup;
-			children = (
-				B1E9187A1992D6A1007C7C6F /* Knowter.xcdatamodeld */,
-			);
-			name = "Core Data Model";
 			sourceTree = "<group>";
 		};
 		B1E918541992D6A1007C7C6F = {
@@ -155,7 +148,7 @@
 			children = (
 				B1E918711992D6A1007C7C6F /* KnowterAppDelegate.h */,
 				B1E918721992D6A1007C7C6F /* KnowterAppDelegate.m */,
-				B1CB7DE21992D7D50069F74D /* Core Data Model */,
+				B1F3840D199304F9007BAB60 /* Data */,
 				B1CB7DE01992D7C40069F74D /* View */,
 				B1CB7DE11992D7CB0069F74D /* Controller */,
 				B1E918831992D6A1007C7C6F /* Images.xcassets */,
@@ -191,6 +184,15 @@
 				B1E918941992D6A1007C7C6F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1F3840D199304F9007BAB60 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B1F3840E1993058D007BAB60 /* Note.h */,
+				B1F3840F1993058D007BAB60 /* Note.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,11 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F384101993058D007BAB60 /* Note.m in Sources */,
 				B1E9186F1992D6A1007C7C6F /* main.m in Sources */,
-				B1E9187F1992D6A1007C7C6F /* KnowterMasterViewController.m in Sources */,
-				B1E9187C1992D6A1007C7C6F /* Knowter.xcdatamodeld in Sources */,
+				B1CB7DEB1992F1440069F74D /* KnowterNotesTableViewController.m in Sources */,
+				B1CB7DEE1992F5480069F74D /* KnowterNoteDetailViewController.m in Sources */,
 				B1E918731992D6A1007C7C6F /* KnowterAppDelegate.m in Sources */,
-				B1E918821992D6A1007C7C6F /* KnowterDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,19 +525,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B1E9187A1992D6A1007C7C6F /* Knowter.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B1E9187B1992D6A1007C7C6F /* Knowter.xcdatamodel */,
-			);
-			currentVersion = B1E9187B1992D6A1007C7C6F /* Knowter.xcdatamodel */;
-			path = Knowter.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B1E918551992D6A1007C7C6F /* Project object */;
 }

@@ -1,5 +1,5 @@
 //
-//  KnowterAppDelegate.h
+//  KnowterNotesTableViewController.h
 //  Knowter
 //
 //  Created by Philip Nichols on 8/6/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KnowterAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface KnowterNotesTableViewController : UITableViewController
 
 @end

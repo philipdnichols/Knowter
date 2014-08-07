@@ -10,4 +10,16 @@
 
 @implementation Note
 
+#pragma mark - Initializers
+
+- (instancetype)initWithContent:(NSString *)content
+            andModificationDate:(NSDate *)modificationDate {
+    self = [super init];
+    if (self) {
+        _content = content;
+        _modificationDate = modificationDate;
+    }
+    return self;
+}
+
 @end

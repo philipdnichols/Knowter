@@ -8,23 +8,17 @@
 
 #import "KnowterNotesTableViewController.h"
 #import "KnowterNoteDetailViewController.h"
+#import "NoteHelper.h"
 
 @interface KnowterNotesTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *notes;
+@property (strong, nonatomic) NSMutableArray *notes; // of Note
 
 @end
 
 @implementation KnowterNotesTableViewController
 
 #pragma mark - Properties
-
-- (NSMutableArray *)notes {
-    if (!_notes) {
-        _notes = [NSMutableArray array];
-    }
-    return _notes;
-}
 
 #pragma mark - Initializers
 
@@ -56,6 +50,19 @@
     [super viewDidLoad];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    [self loadNotes];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self loadNotes];
+}
+
+- (void)loadNotes {
+    self.notes = [[NoteHelper loadNotes] mutableCopy];
+    [self.tableView reloadData];
 }
 
 #pragma mark - IBActions
@@ -93,14 +100,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NoteCellIdentifier
                                                             forIndexPath:indexPath];
     
-    NSDictionary *note = self.notes[indexPath.row];
+    Note *note = self.notes[indexPath.row];
+    cell.textLabel.text = note.content;
+    cell.detailTextLabel.text = note.modificationDate;
     
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,7 +148,7 @@
     }
 }
 
-- (void)prepareNoteDetailViewController:(KnowterNoteDetailViewController *)viewController withNote:(NSDictionary *)note
+- (void)prepareNoteDetailViewController:(KnowterNoteDetailViewController *)viewController withNote:(Note *)note
 {
     viewController.note = note;
 }

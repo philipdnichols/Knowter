@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Note.h"
 
 @interface KnowterNoteDetailViewController : UIViewController
 
-@property (strong, nonatomic) NSDictionary *note;
+@property (strong, nonatomic) Note *note;
 
 @end

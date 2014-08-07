@@ -26,6 +26,7 @@
 		B1E918961992D6A1007C7C6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1E918941992D6A1007C7C6F /* InfoPlist.strings */; };
 		B1E918981992D6A1007C7C6F /* KnowterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E918971992D6A1007C7C6F /* KnowterTests.m */; };
 		B1F384101993058D007BAB60 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F3840F1993058D007BAB60 /* Note.m */; };
+		B1F38413199306A6007BAB60 /* NoteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F38412199306A6007BAB60 /* NoteHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		B1E918971992D6A1007C7C6F /* KnowterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KnowterTests.m; sourceTree = "<group>"; };
 		B1F3840E1993058D007BAB60 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		B1F3840F1993058D007BAB60 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		B1F38411199306A6007BAB60 /* NoteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteHelper.h; sourceTree = "<group>"; };
+		B1F38412199306A6007BAB60 /* NoteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 			children = (
 				B1F3840E1993058D007BAB60 /* Note.h */,
 				B1F3840F1993058D007BAB60 /* Note.m */,
+				B1F38411199306A6007BAB60 /* NoteHelper.h */,
+				B1F38412199306A6007BAB60 /* NoteHelper.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				B1F384101993058D007BAB60 /* Note.m in Sources */,
 				B1E9186F1992D6A1007C7C6F /* main.m in Sources */,
 				B1CB7DEB1992F1440069F74D /* KnowterNotesTableViewController.m in Sources */,
+				B1F38413199306A6007BAB60 /* NoteHelper.m in Sources */,
 				B1CB7DEE1992F5480069F74D /* KnowterNoteDetailViewController.m in Sources */,
 				B1E918731992D6A1007C7C6F /* KnowterAppDelegate.m in Sources */,
 			);

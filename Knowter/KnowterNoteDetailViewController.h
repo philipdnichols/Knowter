@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Note.h"
 
+@protocol KnowterNoteDetailDelegate <NSObject>
+
+- (void)saveNote:(Note *)note;
+
+@end
+
 @interface KnowterNoteDetailViewController : UIViewController
+
+@property (strong, nonatomic) id <KnowterNoteDetailDelegate> delegate;
 
 @property (strong, nonatomic) Note *note;
 @property (nonatomic) BOOL editing;

@@ -13,7 +13,17 @@
 #pragma mark - Properties
 
 - (NSString *)title {
-    return [self.content length] ? [self.content componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]][0] : @"";
+    // Remove newlines from the beginning of the text to avoid a blank title
+    NSMutableArray *components = [[self.content componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+    [components enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[NSString class]]) {
+            NSString *str = (NSString *)obj;
+            if (![str length]) {
+                [components removeObject:obj];
+            }
+        }
+    }];
+    return [self.content length] ? components[0] : @"Note";
 }
 
 #pragma mark - Initializers

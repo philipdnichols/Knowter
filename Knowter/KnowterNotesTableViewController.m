@@ -10,7 +10,7 @@
 #import "KnowterNoteDetailViewController.h"
 #import "NoteHelper.h"
 
-@interface KnowterNotesTableViewController ()
+@interface KnowterNotesTableViewController () <KnowterNoteDetailDelegate>
 
 @property (strong, nonatomic) NSMutableArray *notes; // of Note
 
@@ -59,9 +59,11 @@
     [self loadNotes];
 }
 
-- (void)loadNotes {
+- (void)loadNotes
+{
     self.notes = [[NoteHelper loadNotes] mutableCopy];
     
+    // Only show the "Edit" button when there are entries to edit
     if ([self.notes count]) {
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     } else {
@@ -77,6 +79,7 @@
 {
     id detail = self.splitViewController.viewControllers[1];
     if (detail) {
+        // iPad detail view setup for a new note
         if ([detail isKindOfClass:[UINavigationController class]]) {
             detail = [((UINavigationController *)detail).viewControllers firstObject];
             if ([detail isKindOfClass:[KnowterNoteDetailViewController class]]) {
@@ -86,11 +89,15 @@
             }
         }
     } else {
+        // iPhone modal view setup for a new note
+        
+        // Instantiate the view from the storyboard
         KnowterNoteDetailViewController *noteDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"KnowterNoteDetailViewController"];
         [self prepareNoteDetailViewController:noteDetailViewController
                                      withNote:nil
                                       editing:YES];
         
+        // Embed the detail view in a navigation controller to get the navigation bar
         UINavigationController *noteDetailNavigationController = [[UINavigationController alloc] initWithRootViewController:noteDetailViewController];
         noteDetailNavigationController.navigationBar.translucent = NO;
         noteDetailNavigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -138,8 +145,10 @@
         Note *note = self.notes[indexPath.row];
         [self.notes removeObjectAtIndex:indexPath.row];
         [NoteHelper deleteNote:note];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        // Trigger the Edit Mode to end if there are no more notes
         if (![self.notes count]) {
             [self setEditing:NO animated:YES];
         }
@@ -159,6 +168,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // iPad detail view setup for an existing note
     id detail = self.splitViewController.viewControllers[1];
     if ([detail isKindOfClass:[UINavigationController class]]) {
         detail = [((UINavigationController *)detail).viewControllers firstObject];
@@ -176,6 +186,8 @@
 {
     [super setEditing:editing animated:animated];
     if (!editing) {
+        
+        // Only show the "Edit" button when there are entries to edit
         if (![self.notes count]) {
             self.navigationItem.leftBarButtonItem = nil;
         }
@@ -202,8 +214,18 @@
 
 - (void)prepareNoteDetailViewController:(KnowterNoteDetailViewController *)viewController withNote:(Note *)note editing:(BOOL)editing
 {
+    viewController.delegate = self;
     viewController.editing = editing;
     viewController.note = note;
+}
+
+#pragma mark - KnowterNoteDetailDelegate
+
+- (void)saveNote:(Note *)note
+{
+    [NoteHelper saveNote:note];
+    
+    [self loadNotes];
 }
 
 @end

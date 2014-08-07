@@ -84,9 +84,7 @@
     }
     [notes insertObject:[NoteHelper dictionaryFromNote:note] atIndex:0];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[notes copy]
-                                              forKey:NOTES_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NoteHelper syncNotesWithNSUserDefaults:notes];
 }
 
 + (void)deleteNote:(Note *)note
@@ -102,9 +100,7 @@
     
     [notes removeObjectAtIndex:index];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[notes copy]
-                                              forKey:NOTES_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NoteHelper syncNotesWithNSUserDefaults:notes];
 }
 
 + (void)reorderNoteFrom:(int)fromIndex to:(int)toIndex
@@ -115,12 +111,16 @@
     [notes removeObjectAtIndex:fromIndex];
     [notes insertObject:note atIndex:toIndex];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[notes copy]
-                                              forKey:NOTES_KEY];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NoteHelper syncNotesWithNSUserDefaults:notes];
 }
 
 #pragma mark - Private
+
++ (void)syncNotesWithNSUserDefaults:(NSMutableArray *)notes
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[notes copy] forKey:NOTES_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 + (NSDictionary *)dictionaryFromNote:(Note *)note
 {

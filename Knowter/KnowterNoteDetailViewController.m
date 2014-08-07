@@ -9,9 +9,7 @@
 #import "KnowterNoteDetailViewController.h"
 #import "NoteHelper.h"
 
-@interface KnowterNoteDetailViewController ()
-
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@interface KnowterNoteDetailViewController () <UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *modificationDateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -22,13 +20,46 @@
 
 #pragma mark - Properties
 
-- (NSDateFormatter *)dateFormatter {
-    if (!_dateFormatter) {
-        _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateStyle:NSDateFormatterLongStyle];
-        [_dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+- (void)setNote:(Note *)note {
+    _note = note;
+    
+    if (!_note) {
+        _note = [[Note alloc] initWithContent:@""
+                          andModificationDate:[NSDate date]];
+        
+        
+        if (self.editing) {
+            [self.contentTextView becomeFirstResponder];
+        }
     }
-    return _dateFormatter;
+    
+    self.modificationDateLabel.text = [[NoteHelper sharedNoteHelper].noteDateFormatter stringFromDate:_note.modificationDate];
+    self.contentTextView.text = _note.content;
+}
+
+- (void)setEditing:(BOOL)editing {
+    _editing = editing;
+    
+    if (!self.splitViewController) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(cancelEditingNote)];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                                  style:UIBarButtonItemStyleDone
+                                                                                 target:self
+                                                                                 action:@selector(doneEditingNote)];
+    } else if (_editing) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                                  style:UIBarButtonItemStyleDone
+                                                                                 target:self
+                                                                                 action:@selector(doneEditingNote)];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    self.contentTextView.editable = _editing;
 }
 
 #pragma mark - Initializers
@@ -36,6 +67,7 @@
 - (void)setup
 {
     // Custom setup that must happen before viewDidLoad
+    self.splitViewController.delegate = self;
 }
 
 - (void)awakeFromNib
@@ -60,41 +92,57 @@
 {
     [super viewDidLoad];
     
-    if (self.note) {
-        self.modificationDateLabel.text = self.note.modificationDate;
-        self.contentTextView.text = self.note.content;
-        self.contentTextView.editable = NO;
-    } else {
-        self.modificationDateLabel.text = [self.dateFormatter stringFromDate:[NSDate date]];
-        self.contentTextView.text = @"";
-        [self.contentTextView becomeFirstResponder];
-        
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
-                                                                                 style:UIBarButtonItemStylePlain
-                                                                                target:self
-                                                                                action:@selector(cancelEditingNote)];
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                                  style:UIBarButtonItemStyleDone
-                                                                                 target:self
-                                                                                 action:@selector(doneEditingNote)];
-    }
+    self.note = nil;
+    self.editing = YES;
 }
 
 #pragma mark - IBActions
 
-- (IBAction)cancelEditingNote {
+- (IBAction)cancelEditingNote
+{
     [self dismissViewControllerAnimated:YES
                              completion:nil];
 }
 
-- (IBAction)doneEditingNote {
+- (IBAction)doneEditingNote
+{
+    self.editing = NO;
     [self dismissViewControllerAnimated:YES
                              completion:nil];
     
-    Note *note = [[Note alloc] initWithContent:self.contentTextView.text
-                           andModificationDate:self.modificationDateLabel.text];
-    [NoteHelper saveNote:note];
+    self.note.content = self.contentTextView.text;
+    self.note.modificationDate = [NSDate date];
+    [NoteHelper saveNote:self.note];
+}
+
+#pragma mark - UISplitViewControllerDelegate
+
+- (BOOL)splitViewController:(UISplitViewController *)svc
+   shouldHideViewController:(UIViewController *)vc
+              inOrientation:(UIInterfaceOrientation)orientation
+{
+    return UIInterfaceOrientationIsPortrait(orientation);
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
+{
+    UIViewController *master = aViewController;
+    if ([master isKindOfClass:[UINavigationController class]]) {
+        master = ((UINavigationController *)master).topViewController;
+    }
+    
+    barButtonItem.title = master.navigationItem.title;
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 @end

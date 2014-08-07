@@ -27,8 +27,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="August 3rd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tkd-ad-LQr">
-                                            <rect key="frame" x="15" y="25" width="61" height="15"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="8/6/14 10:58 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tkd-ad-LQr">
+                                            <rect key="frame" x="15" y="25" width="93" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -47,7 +47,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="6s2-5T-M3A">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="F3Z-Ys-bPS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F3Z-Ys-bPS">
                             <connections>
                                 <action selector="newNoteButtonTouch" destination="Gc1-zl-YCg" id="ASC-Mr-flP"/>
                             </connections>
@@ -70,14 +70,17 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="August 6, 2014 9:28:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyK-Yt-fGi">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="August 6, 2014 9:28:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyK-Yt-fGi">
                                 <rect key="frame" x="20" y="0.0" width="280" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4jq-84-fNJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hello, World!" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-pC-zBE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello, World!" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-pC-zBE">
                                 <rect key="frame" x="20" y="28" width="280" height="456"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,6 +89,15 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gr3-pC-zBE" secondAttribute="bottom" constant="20" symbolic="YES" id="I95-or-efs"/>
+                            <constraint firstItem="zyK-Yt-fGi" firstAttribute="leading" secondItem="I2X-kt-ARF" secondAttribute="leading" constant="20" symbolic="YES" id="MGi-wH-xLE"/>
+                            <constraint firstItem="zyK-Yt-fGi" firstAttribute="trailing" secondItem="gr3-pC-zBE" secondAttribute="trailing" id="YPf-rE-jMa"/>
+                            <constraint firstAttribute="trailing" secondItem="zyK-Yt-fGi" secondAttribute="trailing" constant="20" symbolic="YES" id="kuM-Tu-Z8o"/>
+                            <constraint firstItem="zyK-Yt-fGi" firstAttribute="top" secondItem="I2X-kt-ARF" secondAttribute="top" id="nFM-xU-CuE"/>
+                            <constraint firstItem="gr3-pC-zBE" firstAttribute="leading" secondItem="zyK-Yt-fGi" secondAttribute="leading" id="oNy-S3-tjR"/>
+                            <constraint firstItem="gr3-pC-zBE" firstAttribute="top" secondItem="zyK-Yt-fGi" secondAttribute="bottom" constant="8" symbolic="YES" id="s4i-9l-EJP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xf2-1Z-8kl"/>
                     <connections>

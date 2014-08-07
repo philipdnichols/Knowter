@@ -11,9 +11,10 @@
 @interface Note : NSObject
 
 @property (strong, nonatomic) NSString *content;
-@property (strong, nonatomic) NSString *modificationDate;
+@property (strong, nonatomic) NSDate *modificationDate;
+@property (strong, nonatomic) NSString *title;
 
 - (instancetype)initWithContent:(NSString *)content
-            andModificationDate:(NSString *)modificationDate;
+            andModificationDate:(NSDate *)modificationDate;
 
 @end

@@ -15,7 +15,14 @@
 
 @interface NoteHelper : NSObject
 
+@property (strong, nonatomic) NSDateFormatter *noteCellDateFormatter;
+@property (strong, nonatomic) NSDateFormatter *noteDateFormatter;
+
++ (NoteHelper *)sharedNoteHelper;
+
 + (NSArray *)loadNotes;
 + (void)saveNote:(Note *)note;
++ (void)deleteNote:(Note *)note;
++ (void)reorderNoteFrom:(int)fromIndex to:(int)toIndex;
 
 @end

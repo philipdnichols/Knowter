@@ -10,10 +10,16 @@
 
 @implementation Note
 
+#pragma mark - Properties
+
+- (NSString *)title {
+    return [self.content length] ? [self.content componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]][0] : @"";
+}
+
 #pragma mark - Initializers
 
 - (instancetype)initWithContent:(NSString *)content
-            andModificationDate:(NSString *)modificationDate {
+            andModificationDate:(NSDate *)modificationDate {
     self = [super init];
     if (self) {
         _content = content;

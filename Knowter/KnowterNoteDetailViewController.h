@@ -12,5 +12,6 @@
 @interface KnowterNoteDetailViewController : UIViewController
 
 @property (strong, nonatomic) Note *note;
+@property (nonatomic) BOOL editing;
 
 @end

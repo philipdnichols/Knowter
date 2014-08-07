@@ -3,9 +3,11 @@ Knowter
 
 Note Taking App Implementation for www.iosdevpractice.com
 
-TODO:
+Todo
+====
 
 Additional Features:
+--------------------
 
 1. Geotagging a note.
 2. Adding photos to a note (either from your library or taking a new one.)
@@ -16,7 +18,9 @@ Additional Features:
 7. Search notes from table view
 
 Bugs:
+-----
 
 Issues:
+-------
 
 1. Deleting a note that is selected in the detail view of the split view controller for iPad does not clear out the detail view. Not sure of a solid MVC approach for doing this.

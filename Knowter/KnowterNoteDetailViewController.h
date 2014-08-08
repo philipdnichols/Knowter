@@ -17,7 +17,7 @@
 
 @interface KnowterNoteDetailViewController : UIViewController
 
-@property (strong, nonatomic) id <KnowterNoteDetailDelegate> delegate;
+@property (weak, nonatomic) id <KnowterNoteDetailDelegate> delegate;
 
 @property (strong, nonatomic) Note *note;
 @property (nonatomic) BOOL editing;

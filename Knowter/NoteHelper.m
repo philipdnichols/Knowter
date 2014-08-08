@@ -103,9 +103,11 @@
     [NoteHelper syncNotesWithNSUserDefaults:notes];
 }
 
-+ (void)reorderNoteFrom:(int)fromIndex to:(int)toIndex
++ (void)reorderNoteFrom:(NSUInteger)fromIndex to:(NSUInteger)toIndex
 {
     NSMutableArray *notes = [[[NSUserDefaults standardUserDefaults] arrayForKey:NOTES_KEY] mutableCopy];
+    
+    [notes exchangeObjectAtIndex:fromIndex withObjectAtIndex:toIndex];
     
     id note = [notes objectAtIndex:fromIndex];
     [notes removeObjectAtIndex:fromIndex];

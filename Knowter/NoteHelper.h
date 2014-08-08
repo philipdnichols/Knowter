@@ -23,6 +23,6 @@
 + (NSArray *)loadNotes;
 + (void)saveNote:(Note *)note;
 + (void)deleteNote:(Note *)note;
-+ (void)reorderNoteFrom:(int)fromIndex to:(int)toIndex;
++ (void)reorderNoteFrom:(NSUInteger)fromIndex to:(NSUInteger)toIndex;
 
 @end
